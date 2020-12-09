@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionButtonAsync, ConnectionService, NotificationService } from '@microsoft/windows-admin-center-sdk/angular';
+import { ConnectionService, NotificationService } from '@microsoft/windows-admin-center-sdk/angular';
 import { Net } from '@microsoft/windows-admin-center-sdk/core';
 import { Strings } from 'src/generated/strings';
-import { Service, ServiceStatus } from './models/service';
+import { BaseServiceAction } from './actions/base-service.action';
+import { Service, ServiceActionType, ServiceStatus } from './models/service';
 import { ServicesService } from './services/services.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class DefaultComponent implements OnInit {
 
   public services: Service[];
   public selectedService: Service;
-  public actions: ActionButtonAsync<Service>[] = [];
+  public actions: BaseServiceAction[] = [];
 
   public isLoading: boolean;
 
@@ -62,8 +63,13 @@ export class DefaultComponent implements OnInit {
       })
     );
 
+    this.buildActions();
+  }
 
-    const startServiceAction = new ActionButtonAsync<Service>();
+  private buildActions() {
+    const connectionName = this.connectionService.activeConnection.name;
+
+    const startServiceAction = new BaseServiceAction(ServiceActionType.Start);
     startServiceAction.text = this.strings.Actions.StartService.text;
     startServiceAction.iconClass = 'sme-icon sme-icon-play';
     startServiceAction.execute = (target) => {
@@ -90,7 +96,7 @@ export class DefaultComponent implements OnInit {
       startServiceAction
     );
 
-    const stopServiceAction = new ActionButtonAsync<Service>();
+    const stopServiceAction = new BaseServiceAction(ServiceActionType.Stop);
     stopServiceAction.text = this.strings.Actions.StopService.text;
     stopServiceAction.iconClass = 'sme-icon sme-icon-stop';
     stopServiceAction.execute = (target) => {

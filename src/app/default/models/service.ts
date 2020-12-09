@@ -6,8 +6,12 @@ export enum ServiceStatus {
 export interface Service {
     name: string;
     displayName: string;
-    id: string;
     description: string;
     canStop: string;
     status: ServiceStatus;
+}
+
+export enum ServiceActionType {
+    Start,
+    Stop
 }

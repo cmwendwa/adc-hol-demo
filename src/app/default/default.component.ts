@@ -36,7 +36,9 @@ export class DefaultComponent implements OnInit {
       fetchNotificationTitle,
       this.strings.FetchingServicesNotification.progress
     );
-    this.servicesService.getServices().subscribe(
+    this.servicesService.servicesQueryCache.createObservable(
+      { interval: 2000 }
+    ).subscribe(
       (services) => {
         this.isLoading = false;
         this.services = services;

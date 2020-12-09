@@ -10,11 +10,13 @@ import { Service } from '../models/service';
     providedIn: 'root'
 })
 export class ServicesService {
+    public servicesQueryCache = new QueryCache<Service[], any>(() => this.getServices());
+
     constructor(
         private appContextService: AppContextService
     ) { }
 
-    public getServices(): Observable<Service[]> {
+    private getServices(): Observable<Service[]> {
         const command = PowerShell.createCommand(PowerShellScripts.Get_Services);
 
         return this.appContextService.powerShell.run(

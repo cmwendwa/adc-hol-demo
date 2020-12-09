@@ -3,7 +3,9 @@
   <h2>
     {{strings.header}}
   </h2>
-  <sme-data-table style="margin-top: 50px;"
+  <sme-action-bar class="sme-margin-top-md" [actions]="actions" [target]="selectedService">
+  </sme-action-bar>
+  <sme-data-table style="margin-top: 100px;"
     class="sme-layout-absolute sme-position-inset-none sme-margin-inset-xxl sme-margin-top-xxl" #smeDataTable
     [items]="services" [(selection)]="selectedService" [scrollable]="true">
     <sme-data-table-column field="displayName" [header]="strings.Table.Headers.name"></sme-data-table-column>

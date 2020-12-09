@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { DataTableModule, LoadingWheelModule } from '@microsoft/windows-admin-center-sdk/angular';
+import { ActionsModule, DataTableModule, LoadingWheelModule } from '@microsoft/windows-admin-center-sdk/angular';
 
 import { DefaultComponent } from './default.component';
 import { Routing } from './default.routing';
@@ -10,7 +10,8 @@ import { Routing } from './default.routing';
     CommonModule,
     Routing,
     LoadingWheelModule,
-    DataTableModule
+    DataTableModule,
+    ActionsModule
   ],
   declarations: [DefaultComponent]
 })

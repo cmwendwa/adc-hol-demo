@@ -25,7 +25,7 @@
     "Contosoadcholdemo_Default_Actions_StartService_Notification_successs": "Successfully started service: {0}",
     "_Contosoadcholdemo_Default_Actions_StartService_Notification_successs.comment": "{0} is a sevice name",
     "Contosoadcholdemo_Default_Actions_StartService_Notification_error": "An error occured while starting the service '{0}': {1}",
-    "_Contosoadcholdemo_Default_Actions_StartService_Notification_error_comment": "{0} is a sevice name {1} is an error message",
+    "_Contosoadcholdemo_Default_Actions_StartService_Notification_error.comment": "{0} is a sevice name {1} is an error message",
     "Contosoadcholdemo_Default_Actions_StopService_text": "Stop service",
     "Contosoadcholdemo_Default_Actions_StopService_Notification_title": "Stop Service",
     "Contosoadcholdemo_Default_Actions_StopService_Notification_progress": "Stopping service: {0}",

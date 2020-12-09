@@ -36,7 +36,7 @@
     {
       "locale": "default",
       "strings": {
-        "displayName": "Services (ADC HoL Extending WAC)",
+        "displayName": "adcholdemo",
         "description": "{!product-description}",
         "keywords": "SME"
       }

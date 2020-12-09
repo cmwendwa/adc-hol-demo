@@ -1,9 +1,16 @@
 <div class="sme-margin-horizontal-lg">
   <sme-loading-wheel *ngIf="isLoading"></sme-loading-wheel>
   <h2>
-    Services (ADC HoL Extending WAC)
+    {{strings.header}}
   </h2>
-  <ul>
-    <li *ngFor="let service of services">{{service.name}}</li>
-  </ul>
+  <sme-data-table style="margin-top: 50px;"
+    class="sme-layout-absolute sme-position-inset-none sme-margin-inset-xxl sme-margin-top-xxl" #smeDataTable
+    [items]="services" [(selection)]="selectedService" [scrollable]="true">
+    <sme-data-table-column field="displayName" [header]="strings.Table.Headers.name"></sme-data-table-column>
+    <sme-data-table-column field="status" [header]="strings.Table.Headers.status">
+      <ng-template let-data>
+        {{ getStatusText(data.status) }}
+      </ng-template>
+    </sme-data-table-column>
+  </sme-data-table>
 </div>

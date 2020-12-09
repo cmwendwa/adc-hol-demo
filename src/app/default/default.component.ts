@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectionService, NotificationService } from '@microsoft/windows-admin-center-sdk/angular';
 import { Net } from '@microsoft/windows-admin-center-sdk/core';
-import { Service } from './models/service';
+import { Strings } from 'src/generated/strings';
+import { Service, ServiceStatus } from './models/service';
 import { ServicesService } from './services/services.service';
 
 @Component({
@@ -10,13 +11,18 @@ import { ServicesService } from './services/services.service';
   styleUrls: ['./default.component.css']
 })
 export class DefaultComponent implements OnInit {
+  public strings = MsftSme.getStrings<Strings>().Contosoadcholdemo.Default;
+
   public services: Service[];
+  public selectedService: Service;
+
   public isLoading: boolean;
+
   constructor(
     private servicesService: ServicesService,
     private notificationService: NotificationService,
     private connectionService: ConnectionService
-  ) {}
+  ) { }
 
   public ngOnInit() {
     this.isLoading = true;
@@ -24,10 +30,10 @@ export class DefaultComponent implements OnInit {
     const connectionName = this.connectionService.activeConnection.name;
 
     const fetchNotification = this.notificationService.create(connectionName);
-    const fetchNotificationTitle = 'Fetch services';
+    const fetchNotificationTitle = this.strings.FetchingServicesNotification.title;
     fetchNotification.showInProgress(
       fetchNotificationTitle,
-      'Fetching services'
+      this.strings.FetchingServicesNotification.progress
     );
     this.servicesService.getServices().subscribe(
       (services) => {
@@ -35,16 +41,24 @@ export class DefaultComponent implements OnInit {
         this.services = services;
         fetchNotification.showSuccess(
           fetchNotificationTitle,
-          'Successfully fetched services'
+          this.strings.FetchingServicesNotification.sucess
         );
       },
       (error => {
         this.isLoading = false;
         fetchNotification.showError(
           fetchNotificationTitle,
-          'An error occcured while fetching services: {0}'.format(Net.getErrorMessage(error))
+          this.strings.FetchingServicesNotification.error.format(Net.getErrorMessage(error))
         );
       })
     );
+  }
+
+  /**
+   * returns localized string for the status
+   * @param status current status
+   */
+  public getStatusText(status: ServiceStatus) {
+    return status === ServiceStatus.Running ? this.strings.Table.Content.Status.running : this.strings.Table.Content.Status.stopped;
   }
 }

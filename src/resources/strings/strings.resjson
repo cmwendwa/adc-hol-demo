@@ -1,11 +1,23 @@
 {
     "//": "manifest section",
-    "Contosoadcholdemo_Manifest_displayName": "adcholdemo",
+    "Contosoadcholdemo_Manifest_displayName": "Services (ADC HoL Extending WAC)",
     "Contosoadcholdemo_Manifest_description": "{!product-description}",
     "Contosoadcholdemo_Manifest_keywords": "SME",
 
     "//": "adcholdemo",
-    "Contosoadcholdemo_title": "adcholdemo",
+    "Contosoadcholdemo_title": "Services (ADC HoL Extending WAC)",
+
+    "//": "Default component strings",
+    "Contosoadcholdemo_Default_header": "Services (ADC HoL Extending WAC)",
+    "Contosoadcholdemo_Default_FetchingServicesNotification_title": "Fetch services",
+    "Contosoadcholdemo_Default_FetchingServicesNotification_progress": "Fetching services",
+    "Contosoadcholdemo_Default_FetchingServicesNotification_sucess": "Fetched services successfully",
+    "Contosoadcholdemo_Default_FetchingServicesNotification_error": "An error occured while fetching services: {0}",
+    "_Contosoadcholdemo_Default_FetchingServicesNotification_error.comment": "{0} is an error message",
+    "Contosoadcholdemo_Default_Table_Headers_name": "Name",
+    "Contosoadcholdemo_Default_Table_Headers_status": "Status",
+    "Contosoadcholdemo_Default_Table_Content_Status_running": "Running",
+    "Contosoadcholdemo_Default_Table_Content_Status_stopped": "Stopped",
 
     "//": "about",
     "Contosoadcholdemo_about": "{!product-about}",

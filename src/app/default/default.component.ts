@@ -101,7 +101,7 @@ export class DefaultComponent implements OnInit {
         title,
         this.strings.Actions.StopService.Notification.progress.format(target.displayName)
       );
-      this.servicesService.stopService(target.id).subscribe(
+      this.servicesService.stopService(target.name).subscribe(
         (result) => stopServiceNotification.showSuccess(title, this.strings.Actions.StopService.Notification.successs.format(target.name)),
         (error) => stopServiceNotification.showError(
           title,

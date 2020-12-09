@@ -1,0 +1,13 @@
+{
+    "//": "manifest section",
+    "Contosoadcholdemo_Manifest_displayName": "adcholdemo",
+    "Contosoadcholdemo_Manifest_description": "{!product-description}",
+    "Contosoadcholdemo_Manifest_keywords": "SME",
+
+    "//": "adcholdemo",
+    "Contosoadcholdemo_title": "adcholdemo",
+
+    "//": "about",
+    "Contosoadcholdemo_about": "{!product-about}",
+    "Contosoadcholdemo_aboutDescription": "{!product-about-description}"
+}
